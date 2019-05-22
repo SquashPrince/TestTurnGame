@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class ScrollMove : MonoBehaviour
+{
+    public GameObject scrollUnactive;
+    public RectTransform scroll;
+
+    public bool moveScroll = false;
+    
+    public float xPosMoveSpeed;
+    public float yPosMoveSpeed;
+
+    public int xPos;
+    public int yPos;
+
+    void Update()
+    {
+        if(moveScroll  == false)
+        {
+            scroll.anchoredPosition += new Vector2(xPosMoveSpeed, yPosMoveSpeed);
+        }
+
+        if (moveScroll == true)
+        {
+            scroll.anchoredPosition -= new Vector2(xPosMoveSpeed, yPosMoveSpeed);
+        }
+
+        if(scroll.anchoredPosition.x <= 0 && scroll.anchoredPosition.y >= 0)
+        {
+            scroll.anchoredPosition = Vector2.zero;
+        }
+
+        if (scroll.anchoredPosition.x >= xPos && scroll.anchoredPosition.y <= yPos)
+        {
+            scroll.anchoredPosition = new Vector2(xPos, yPos);
+            scrollUnactive.SetActive(false);
+        }
+    }
+}
