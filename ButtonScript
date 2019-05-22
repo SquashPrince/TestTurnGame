@@ -1,0 +1,12 @@
+using UnityEngine;
+
+public class ButtonSciprt : MonoBehaviour
+{
+    public GameObject fadeManager;
+    
+    public void StageEscapeBTN()
+    {
+        fadeManager.GetComponent<FadeControll>().sceneLevel = 1;
+        fadeManager.GetComponent<FadeControll>().changeScene = true;
+    }
+}
