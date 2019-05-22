@@ -1,0 +1,62 @@
+using UnityEngine;
+
+public class StageButtonScript : MonoBehaviour
+{
+    public GameObject changeScene;
+    public GameObject sceneNumSave;
+
+    public GameObject upgradeScroll;
+    public GameObject teamSetScroll;
+
+    public AudioSource buttonAudio;
+    public AudioClip clickSound;
+
+    public int stageNo;
+
+    public void OnSmithyButton()
+    {
+        upgradeScroll.SetActive(true);
+        upgradeScroll.GetComponent<ScrollMove>().moveScroll = true;
+        buttonAudio.PlayOneShot(clickSound);
+    }
+
+    public void OnTutorialStage()
+    {
+        sceneNumSave.GetComponent<DontDestroyDataScript>().stageLevel = 0;
+        buttonAudio.PlayOneShot(clickSound);
+        changeScene.GetComponent<FadeControll>().sceneLevel = 2;
+        changeScene.GetComponent<FadeControll>().changeScene = true;
+    }
+
+    public void OnFirstStage()
+    {
+        sceneNumSave.GetComponent<DontDestroyDataScript>().stageLevel = 1;
+        buttonAudio.PlayOneShot(clickSound);
+        changeScene.GetComponent<FadeControll>().sceneLevel = 3;
+        changeScene.GetComponent<FadeControll>().changeScene = true;
+    }
+
+    public void OnSecondStage()
+    {
+        sceneNumSave.GetComponent<DontDestroyDataScript>().stageLevel = 2;
+        buttonAudio.PlayOneShot(clickSound);
+        changeScene.GetComponent<FadeControll>().sceneLevel = 3;
+        changeScene.GetComponent<FadeControll>().changeScene = true;
+    }
+
+    public void OnThirdStage()
+    {
+        sceneNumSave.GetComponent<DontDestroyDataScript>().stageLevel = 3;
+        buttonAudio.PlayOneShot(clickSound);
+        changeScene.GetComponent<FadeControll>().sceneLevel = 3;
+        changeScene.GetComponent<FadeControll>().changeScene = true;
+    }
+
+    public void OnBossStage()
+    {
+        sceneNumSave.GetComponent<DontDestroyDataScript>().stageLevel = 4;
+        buttonAudio.PlayOneShot(clickSound);
+        changeScene.GetComponent<FadeControll>().sceneLevel = 4;
+        changeScene.GetComponent<FadeControll>().changeScene = true;
+    }
+}
