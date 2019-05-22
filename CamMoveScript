@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class CamMoveScript : MonoBehaviour
+{
+    public Transform camTR;
+
+    public bool moveSwitch = false;
+    public float camSpeed;
+
+    void Update()
+    {
+        if (moveSwitch == true)
+        {
+            camTR.position += new Vector3(camSpeed,0);
+        }
+    }
+}
