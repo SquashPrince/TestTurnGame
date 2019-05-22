@@ -1,0 +1,31 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class FadeControll : MonoBehaviour
+{
+    public Animator animator;
+
+    public int sceneLevel;
+    private int leveToLoad;
+
+    public bool changeScene = false;
+
+    void Update()
+    {
+        if (changeScene == true)
+        {
+            FadeToLevel(sceneLevel);
+        }
+    } // 조건 달성시 페이드및 씬 전환
+
+    public void FadeToLevel(int levelIndex)
+    {
+        leveToLoad = levelIndex;
+        animator.SetTrigger("FadeOut");
+    } // 페이드아웃
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(leveToLoad);
+    } // 설정한 씬으로 이동
+}
