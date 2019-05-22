@@ -1,0 +1,15 @@
+using UnityEngine;
+
+public class SmithyButtonScript : MonoBehaviour
+{
+    public GameObject upgradeScroll;
+
+    public AudioSource buttonAudio;
+    public AudioClip clickSound;
+
+    public void OnEscapeButton()
+    {
+        upgradeScroll.GetComponent<ScrollMove>().moveScroll = false;
+        buttonAudio.PlayOneShot(clickSound);
+    }
+}
