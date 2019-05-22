@@ -1,0 +1,44 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class TextBlink : MonoBehaviour
+{
+    public Text blinkText;
+    public float blinkSpeed = 1.5f;
+
+    bool isHide = false;
+
+    void Update()
+    {
+
+        if (isHide == false)
+        {
+            Color color = blinkText.color;
+            color.a -= Time.deltaTime * blinkSpeed;
+
+            if (color.a < 0)
+            {
+                color.a = 0.0f;
+                isHide = true;
+            }
+
+            blinkText.color = color;
+
+        }
+        if (isHide == true)
+        {
+            Color color = blinkText.color;
+            color.a += Time.deltaTime * blinkSpeed;
+
+            if (color.a > 1)
+            {
+                color.a = 1.0f;
+                isHide = false;
+            }
+
+            blinkText.color = color;
+        }
+
+
+    } // 텍스트 블링크
+}
