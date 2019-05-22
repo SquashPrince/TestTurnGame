@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LoadDataComplete : MonoBehaviour
+{
+    public GameObject fadeScrpit;
+
+    public AudioSource audioSource;
+    public AudioClip clickSound;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            fadeScrpit.GetComponent<FadeControll>().changeScene = true;
+            audioSource.PlayOneShot(clickSound);
+        }    
+    } // 데이터가 로드가 다 되었을시(가정) 마우스를 탭하여 페이드트리거 작동
+}
